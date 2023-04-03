@@ -2,6 +2,8 @@ import time
 import csv
 import json
 from facebook_scraper import *
+#remote import        
+
 
 results = []
 start_url = None
@@ -11,6 +13,7 @@ def handle_pagination_url(url):
     if results:
         print(f"{len(results)}: {results[-1]['time']}: {start_url}")
 set_cookies("cookies.txt")
+#Issue : Dynamic page info add
 while True:
     try:
         for post in get_posts("537554109685212", page_limit=None, start_url=start_url, request_url_callback=handle_pagination_url, options={
@@ -19,12 +22,11 @@ while True:
         }):
             #results.append(post)
             print(type(post))
-            print(post)
 
-            #dict to json parse
-            json_post = json.dumps(post, indent=4, sort_keys=True, default=str)
-            print(type(json_post))
 
+            #Issue : Try catch exception handling
+            #Issue : Make this dynamic to call from other file
+            #profile detail page import
             #create individual file for each json and write
             filename = "data/"+post['post_id']+".json"
             with open(filename, 'w') as f:
