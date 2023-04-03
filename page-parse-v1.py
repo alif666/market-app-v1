@@ -22,19 +22,9 @@ while True:
             
             print(post['post_id'])
         print("All done")
+        print(type(result))
         #print(results)
         # open the file in the write mode
-        f = open('foodbankbd.txt', 'w')
-
-        # create the csv writer
-        writer = csv.writer(f)
-
-        # write a row to the csv file
-        writer.writerow(results)
-
-
-
-
         break
     except exceptions.TemporarilyBanned:
         print("Temporarily banned, sleeping for 10m")
