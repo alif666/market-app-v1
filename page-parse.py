@@ -11,6 +11,7 @@ import page_detail_parse as pdp
 
 #Method to parse facebook Group Posts
 def get_post_id(post_id, loc, limit):
+    loc = post_id+"_"+loc
     results = []
     start_url = None
     def handle_pagination_url(url):
@@ -42,8 +43,8 @@ def get_post_id(post_id, loc, limit):
         except exceptions.TemporarilyBanned:
             print("Temporarily banned, sleeping for 10m")
             time.sleep(600)
-
-
-get_post_id("537554109685212", "posts", 100)
-pdp.get_list_of_post_id_details("posts")
+#537554109685212
+2152489894978055
+get_post_id("2152489894978055", "posts", 100)
+pdp.get_list_of_post_id_details("closet_posts")
 
