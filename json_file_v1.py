@@ -7,7 +7,9 @@ def get_all_filenames_from_location(folder_path):
     filenames = []
     
     #Get a list of all  files in the folder
+
     files = os.listdir(folder_path)
+    
     
     #Print the file names
     for file in files:

@@ -2,11 +2,13 @@ import time
 import csv
 import json
 from facebook_scraper import *
+from facebook_scraper import get_group_info
 import os
 
 
 import write_file_v1 as wf
 import page_detail_parse as pdp
+import json_to_db as jtd
 #remote import        
 
 #Method to parse facebook Group Posts
@@ -44,7 +46,14 @@ def get_post_id(post_id, loc, limit):
             print("Temporarily banned, sleeping for 10m")
             time.sleep(600)
 #537554109685212
-2152489894978055
-get_post_id("2152489894978055", "posts", 100)
-pdp.get_list_of_post_id_details("closet_posts")
+#2152489894978055
+
+#Give the page ID
+#groupDict = get_group_info("foodbankbd") 
+#pageId = groupDict['id']
+pageId = "653547362293676"
+get_post_id("653547362293676", "posts", 10000)
+pdp.get_list_of_post_id_details("653547362293676"+"_posts")
+#jtd.json_to_db(pageId+"_posts")
+
 
